@@ -32,9 +32,11 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.formLogin();
+		http.formLogin().loginPage("/login").defaultSuccessUrl("/home")
+						.failureUrl("/login?error").permitAll();						
 		http.authorizeRequests().antMatchers("/add**/**", "/del**/**").hasRole("ADMIN");
 		http.authorizeRequests().anyRequest().authenticated();
+		http.exceptionHandling().accessDeniedPage("/access-denied");
 	}
 	
 	@Bean

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bassem.boot1.model.Book;
 import com.bassem.boot1.repository.IBookRepository;
@@ -46,5 +49,30 @@ public class AppController {
 		return "redirect:/home";
 		
 	}
+	
+	
+	@RequestMapping(value="/login", method = {RequestMethod.GET, RequestMethod.POST})
+	public String authenticate(Model m, @RequestParam("error") String error, @RequestParam("logout") String logout) {
+		
+		String alert = null;
+		String alert_style = null;
+		
+		if (error != null) {
+			alert = "username or password not correct!";
+			alert_style = "danger";
+		} else if (logout != null) {
+			alert = "You have signed out";
+			alert_style = "success";
+		}
+		
+		m.addAttribute("alert", alert);
+		m.addAttribute("alert-style", alert_style);
+		
+		return "login";
+	}
+	
+	
+	
+	
 	
 }
