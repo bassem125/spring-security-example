@@ -14,10 +14,8 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="panel panel-primary">
-				<div class="panel-body">
+			<div class="alert alert-primary">
 					List of Books:
-				</div>
 			</div>
 			<br>
 			<div class="row"> 
@@ -30,6 +28,7 @@
 					<a href="<c:url value='/logout' />" class="btn btn-info">logout</a>
 				</div>
 			</div>
+			<br>
 			<div class="row">
 				<div class="col-md-4 offset-4" >
 					<table class="table table-dark">
