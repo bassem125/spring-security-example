@@ -14,10 +14,10 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="panel panel-primary">
-				<div class="panel-body">
+			<div class="alert alert-primary">
+<!-- 				<div class="panel-body"> -->
 					List of Books:
-				</div>
+<!-- 				</div> -->
 			</div>
 			<br>
 			<div class="row"> 
@@ -30,8 +30,9 @@
 					<a href="<c:url value='/logout' />" class="btn btn-info">logout</a>
 				</div>
 			</div>
+			<br>
 			<div class="row">
-				<div class="col-md-4 offset-4" >
+				<div class="col-md-4 " >
 					<table class="table table-dark">
 						<thead>
 							<tr>
