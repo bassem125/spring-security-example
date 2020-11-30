@@ -9,15 +9,13 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>home</title>
-		<link href="<c:url value='/bootstrap/css/bootstrap.min.css' />" rel="stylesheet">
+		<link href="<c:url value='/bootstrap/css/bootstrap.min.css' />" rel="stylesheet" type="text/css">
 		<c:set var="cxt" value="${pageContext.request.contextPath}"/>
 	</head>
 	<body>
 		<div class="container">
 			<div class="alert alert-primary">
-<!-- 				<div class="panel-body"> -->
 					List of Books:
-<!-- 				</div> -->
 			</div>
 			<br>
 			<div class="row"> 

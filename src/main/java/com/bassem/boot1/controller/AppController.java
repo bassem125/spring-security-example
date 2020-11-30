@@ -50,9 +50,16 @@ public class AppController {
 		
 	}
 	
+	@GetMapping("/access-denied")
+	public String denied(Model m) {
+		return "accessDenied";
+		
+	}
 	
 	@RequestMapping(value="/login", method = {RequestMethod.GET, RequestMethod.POST})
-	public String authenticate(Model m, @RequestParam("error") String error, @RequestParam("logout") String logout) {
+	public String authenticate(Model m, 
+			@RequestParam(value="error", required = false) String error, 
+			@RequestParam(value="logout", required = false) String logout) {
 		
 		String alert = null;
 		String alert_style = null;
@@ -66,7 +73,7 @@ public class AppController {
 		}
 		
 		m.addAttribute("alert", alert);
-		m.addAttribute("alert-style", alert_style);
+		m.addAttribute("alert_style", alert_style);
 		
 		return "login";
 	}

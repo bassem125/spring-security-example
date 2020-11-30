@@ -35,8 +35,10 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 		http.formLogin().loginPage("/login").defaultSuccessUrl("/home")
 						.failureUrl("/login?error").permitAll();						
 		http.authorizeRequests().antMatchers("/add**/**", "/del**/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/bootstrap/**").permitAll();
 		http.authorizeRequests().anyRequest().authenticated();
 		http.exceptionHandling().accessDeniedPage("/access-denied");
+		http.csrf().disable();
 	}
 	
 	@Bean
